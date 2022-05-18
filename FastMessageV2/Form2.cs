@@ -17,9 +17,11 @@ namespace FastMessageV2
         string FastMessages = @"C:\FastMessages.txt";
         string[] messages = new string[200];
         int j = 0;
+        FormAddNewName formNewName = new FormAddNewName();
         public Form2()
         {
             InitializeComponent();
+            
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -54,6 +56,14 @@ namespace FastMessageV2
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            File.AppendAllText(FastMessages, "\n;\n" + textBox1.Text);
+            messages[j + 1] = textBox1.Text;
+            formNewName.Show();
 
         }
     }

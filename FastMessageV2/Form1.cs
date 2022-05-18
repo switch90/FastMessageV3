@@ -86,5 +86,24 @@ namespace FastMessageV2
                 notifyIcon1.Visible = true;
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+            string[] lines = File.ReadAllLines(FastName);
+            foreach (string s in lines)
+            {
+                listBox1.Items.Add(s);
+            }
+            int j = 0;
+            string a = File.ReadAllText(FastMessages);
+            int i = File.ReadAllLines(FastName).Length;     //надо внести правильно из файла в строку, чтобы можно было связать с другим файлом
+            string[] subs = a.Split(';');
+            foreach (var sub in subs)
+            {
+                messages[j] = sub;
+                j++;
+            }
+        }
     }
 }
